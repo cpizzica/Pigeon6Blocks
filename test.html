@@ -55,6 +55,7 @@ var SNR = 'single'
 var buttonappear = false
 var instruction_picker = 1
 var BottomBarMessage = 'No Response'
+var chosenSNRArray = ''
 	
 		
     function centered_message(message) {
@@ -575,11 +576,11 @@ var BottomBarMessage = 'No Response'
 	
 	var full_block = {
 		timeline: [test_block, test_frame_int],
-		repetitions: 30
+		repetitions: 250
 	}
 	var full_block_pre = {
 		timeline: [test_block_pre, test_frame_int_pre],
-		repetitions: 30
+		repetitions: 250
 	}
 	var training_block = {
 		timeline: [training_trial_start, full_block, training_trial_end],
@@ -621,6 +622,7 @@ var BottomBarMessage = 'No Response'
 			jsPsych.data.get().addToLast({CorrectChoice: CDcolor})
 			jsPsych.data.get().addToLast({UpperChoiceThreshold: UpperChoiceThreshold})
 			jsPsych.data.get().addToLast({LowerChoiceThreshold: LowerChoiceThreshold})
+			jsPsych.data.get().addToLast({LowerChoiceThreshold: chosenSNRArray})
 			
 		},
  preload: [XYData,ABData,CDData,EFData,GHData],
